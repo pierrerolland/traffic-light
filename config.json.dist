@@ -1,0 +1,10 @@
+{
+  "url": "https://yoururl.hipchat.com",
+  "roomId": "your room id",
+  "token": "your access token (needs view_messages access)",
+  "jenkinsBotDisplayedName": "The name of your Jenkins bot in Hipchat",
+  "buildName": "The name of the build you want to audit",
+  "greenLightPin": 11,
+  "yellowLightPin": 15,
+  "redLightPin": 16
+}

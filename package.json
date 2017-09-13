@@ -1,0 +1,15 @@
+{
+  "name": "traffic-light",
+  "version": "1.0.0",
+  "description": "A Traffic light that changes when Jenkins status updates. Catches Jenkins updates by the notifications it sends to Hipchat.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Pierre Rolland <roll.pierre@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "node-fetch": "^1.7.3",
+    "pi-gpio": "0.0.8"
+  }
+}

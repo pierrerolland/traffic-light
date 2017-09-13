@@ -1,4 +1,4 @@
-# traffic-light
+# traffic-light :traffic_light:
 A traffic light based on the notifications Jenkins pops on a given Hipchat room
 
 ## Setup

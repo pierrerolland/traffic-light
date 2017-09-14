@@ -35,17 +35,12 @@ const jenkinsHaveStatus = (status, message) => {
 };
 
 const turnPinOn = pinId => {
-    setPin(pinId, 1);
     if (activePin !== null) {
-        setPin(activePin, 0);
+        gpio.close(activePin);
     }
     activePin = pinId;
-};
-const setPin = (pinId, direction) => {
     gpio.open(pinId, 'output', () => {
-        gpio.write(pinId, direction, () => {
-            gpio.close(pinId);
-        });
+        gpio.write(pinId, direction, () => {});
     });
 };
 

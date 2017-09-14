@@ -40,7 +40,7 @@ const turnPinOn = pinId => {
     }
     activePin = pinId;
     gpio.open(pinId, 'output', () => {
-        gpio.write(pinId, direction, () => {});
+        gpio.write(pinId, 1, () => {});
     });
 };
 

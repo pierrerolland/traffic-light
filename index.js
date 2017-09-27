@@ -5,10 +5,6 @@ const config = require('./config.json');
 let activePin = null;
 let lastMessageId = null;
 
-initPin(config.greenLightPin);
-initPin(config.redLightPin);
-initPin(config.yellowLightPin);
-
 const watch = () => {
     Api.getRoomMessages().then(response => {
         const jenkinsMessages = response.items.filter(filterJenkinsMessages);
@@ -51,4 +47,7 @@ const turnPinOn = pinId => {
     gpio.write(pinId, 0, () => {});
 };
 
+initPin(config.greenLightPin);
+initPin(config.redLightPin);
+initPin(config.yellowLightPin);
 setInterval(watch, 5000);

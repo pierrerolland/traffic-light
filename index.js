@@ -5,9 +5,9 @@ const config = require('./config.json');
 let activePin = null;
 let lastMessageId = null;
 
-gpio.close(config.greenLightPin);
-gpio.close(config.redLightPin);
-gpio.close(config.yellowLightPin);
+initPin(config.greenLightPin);
+initPin(config.redLightPin);
+initPin(config.yellowLightPin);
 
 const watch = () => {
     Api.getRoomMessages().then(response => {
@@ -39,14 +39,16 @@ const jenkinsHaveStatus = (status, message) => {
     return new RegExp(`${config.buildName} .* ${status}`).exec(message) !== null;
 };
 
+const initPin = pinId => {
+    gpio.open(pinId, "out down", () => { gpio.write(pinId, 1, () => {})});
+};
+
 const turnPinOn = pinId => {
     if (activePin !== null) {
-        gpio.close(activePin);
+        gpio.write(activePin, 1, () => {});
     }
     activePin = pinId;
-    gpio.open(pinId, 'output', () => {
-        gpio.write(pinId, 1, () => {});
-    });
+    gpio.write(pinId, 0, () => {});
 };
 
 setInterval(watch, 5000);

@@ -5,6 +5,10 @@ const config = require('./config.json');
 let activePin = null;
 let lastMessageId = null;
 
+gpio.close(config.greenLightPin);
+gpio.close(config.redLightPin);
+gpio.close(config.yellowLightPin);
+
 const watch = () => {
     Api.getRoomMessages().then(response => {
         const jenkinsMessages = response.items.filter(filterJenkinsMessages);

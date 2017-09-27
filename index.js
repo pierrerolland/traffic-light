@@ -27,7 +27,8 @@ const watch = () => {
 };
 
 const filterJenkinsMessages = (message) => {
-    return message.from.name === config.jenkinsBotDisplayedName && message.message.indexOf(config.buildName) !== -1;
+    return (message.from === config.jenkinsBotDisplayedName || message.from.name === config.jenkinsBotDisplayedName) &&
+        message.message.indexOf(config.buildName) !== -1;
 };
 
 const jenkinsHaveStatus = (status, message) => {
